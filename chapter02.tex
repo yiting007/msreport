@@ -1,0 +1,23 @@
+% !TEX encoding = UTF-8 Unicode
+%!TEX root = thesis.tex
+% !TEX spellcheck = en-US
+%%=========================================
+\chapter{Related Work}
+Although little, there has already been some work on ontology matching visualization \cite{falconer2007cognitive}. Each of them has advantages of presenting information, also some unsatisfying features. In the following part we will introduce and analyze each method briefly.
+
+%%=========================================
+\section{Cluster representation} % (fold)
+\label{sub:cluster_representation}
+    The cluster representation \cite{Lanzenberger06alviz-} does a good job in showing both detailed and general information of matching results. Users can select the level they want to cluster for the results. However, this method is severely constrained by its computation complexity, which is $O(n^3)$ where $n$ is the size of the ontology. Furthermore, it can only be applied in one algorithm, when multiple algorithms are used, colors indicating the matching confidence might be confusing.
+
+%%=========================================
+\section{Treemap view} % (fold)
+\label{sub:treemap_view}
+    Treemap view \cite{falconer2007cognitive} of ontology matching does well in showing much information in a certain area. Besides that, detailed matching information is provided in another small window. However, when ontology tends to be large, the lower the level, the smaller the area, and the information can not be conveyed clearly. In the contrast, upper level ontology usually have smaller number than their children, but they take more area, which does not reasonably deals with the problem.
+%%=========================================
+\section{Matrix representation} % (fold)
+\label{sub:matrix_representation}
+    This matrix representation \cite{cruz2012interactive} surpasses the aforementioned two methods because it makes full use of space and color information, showing as the following figure. The color indicating each matching confidence actually works as the third dimension without adding more space. Problem occurs when the size of the similarity matrix grows with ontology size. Also, because of the sparsity of the similarity matrix, showing them all is actually a waste of space. 
+%%=========================================
+
+

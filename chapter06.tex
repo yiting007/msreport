@@ -1,0 +1,17 @@
+% !TEX encoding = UTF-8 Unicode
+%!TEX root = thesis.tex
+% !TEX spellcheck = en-US
+%%=========================================
+\chapter {Limications and Future works}
+This application is able to compare between different algorithm performances. However, it displays two algorithms each time. When users need to compare multiple algorithms they need to switch between algorithms using buttons. The current design is not able to display multiple algorithms at one time due to space limitation of the screen. 
+
+In order to solve the problem above, we can use the structure shown in Fig.\ref{fig:updated_structure}. 
+
+\begin{figure*}[!ht]
+	\centering
+	\includegraphics[width=4.5in]{pics/structure.png}
+	\caption{Updated Structure}
+	\label{fig:updated_structure}
+\end{figure*}
+
+Each node in the structure is a piechart with recursion properties. The center piechart represent the current concept and the outer piecharts are the matching results of different matching algorithms. We connect the center and outer charts with a line and the longer the line, the smaller the matching confidence value. We came up with this design to solve the "display multiple matchers" issue. For the visualization part this is able to display more matchers at a time.

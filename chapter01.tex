@@ -1,0 +1,30 @@
+% !TEX encoding = UTF-8 Unicode
+%!TEX root = thesis.tex
+% !TEX spellcheck = en-US
+%%=========================================
+\chapter{Introduction}
+An ontology typically provides a vocabulary describing a domain of interest and a specification of the meaning of terms in that vocabulary. More corporations have started using ontology for storing their knowledge. However, more than one ontology can be used for the same knowledge. To address this issue, one has to either devise a mechanism to merge the ontology automatically or, let human to do the matching manually. That is what we called ontology matching, and it is the process of finding the relationship between concepts/properties between different ontology. In this project we focus on the concept matching.
+
+    Different techniques have been examined in concept matching. For example the string/language based algorithm, the structural based algorithm, the combination strategies and filtering techniques. In this project we will not focusing on any particular matching algorithm, but focusing on visualizing the ontology matching process and the methods to involve human in the matching process to help get a better mapping.
+
+    We decompose this project into two parts: visualization and visual analytics. To some point, good visualization can be regarded as a prerequisite of effective analytics. Some previous work has been done on the visualization part, but most of the two parts are challenging and remain undeveloped, which makes this project interesting.
+
+%%=========================================
+\section{Visualization} % (fold)
+\label{sub:visualization}
+    Visual representation of large scaled data helps people understand and analyze information or process. Here it is very necessary to point out that this project is doing ontology matching visualization, instead of pure ontology visualization. There has been much work done on visualizing ontology structures, while visualizing ontology matching results are barely found. This might be due to the complex relationship between source and target ontology structures. Moreover, another focus is that the visualization is applied to large ontology, which has little work been done so far. Simply showing a list or a tree structure of ontology does little help when the size of the ontology tend to be very large, due to the limitation of memory spaces. To better compare and analyze the matching results, a better representation of data is required.
+% subsection visualization (end)
+
+%%=========================================
+\section{Visual Analytics} % (fold)
+\label{sub:analytics}
+    Visual Analytics is the science of analytical reasoning supported by interactive visual interfaces \cite{bertini2010investigating}. It is a new interdisciplinary domain that integrates several domains like: interactive visualization, statistics and data mining, human factors, to focus on analytical reasoning facilitated by interactive visual interfaces. Visual Analytics often involves the similarity matrices. A similarity matrix is built for each pair of concepts, using the Linear Weighted Combination (LWC) matcher, which processes the weight average for the different similarity results \cite{Cruz:2009:AEM:1687553.1687598}. Assume that the source and target ontology have size $M$ and $N$, then the similarity matrix is of size $M \times N$. When $M$ and $N$ are large, the matrix becomes more complicated. Additionally, it would be much more challenging if multiple matching algorithms are involved in the analytics.
+
+%%=========================================
+\section{User Feedback Loop}	% (fold)
+\label{sub:ufl}
+   This project involves the issue of user intervention instead of only focusing on matching algorithms to compute candidate mappings. Ontology is represented by language and languages are known to be ambiguous. Compared to machines, human can better match those concepts by using detailed knowledge about the world.
+
+   This project aims at improving the matching results instead of improving the matching algorithms. 
+%%=========================================
+
