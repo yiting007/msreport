@@ -2,25 +2,68 @@
 %!TEX root = thesis.tex
 % !TEX spellcheck = en-US
 %%=========================================
-\chapter{Conclusion}
-Compare with the criteria we proposed previously, this application fulfills all of our standards as follows:
+\chapter{Conclusions and Future Work}
+In our project we devised a visualization method for large ontology
+matching that has the following features:
 \begin{enumerate}
 	\item Representation Dimension
 	\begin{itemize}
-		\item Provide a visual representation for source and target ontologies
-		\item Focus on a small part of the ontologies but also able to show the overview.
-	\end{itemize}
-	
-	\item Analysis and Decision Making
-	\begin{itemize}
-		\item Provide ambiguous mappings for users, the system will detect the most ambiguous alinements made by different algorithm and show them to users.
-		\item Let users internally make mapping decisions and mark the decisions that users already made.
+		\item Visual representation for source and
+                  target ontologies and for mappings between classes
+                  in those ontologies. 
+		\item Focus on a small part of the ontologies at a
+                  time allowing to quickly access other parts of the ontologies.
+                \item Display of the similarity values between classes
+                  and provide an overview of the similarity values for the
+                  children of those classes.
 	\end{itemize}
 	\item Interaction Dimension
 	\begin{itemize}
-	 	\item User-driven navigation of concepts and properties.
-		\item Searching for a specific concept and the abilities to go back and forward.
+	 	\item User-driven navigation of classes and properties.
+		\item Ability to search for a specific class and to
+                  traverse the ontologies vertically (parents and
+                  children of a class) and horizontally (siblings of a
+                  class) .
 	\end{itemize}
+	\item Analysis and Decision Making
+	\begin{itemize}
+		\item Display several possible mappings to the users, so that
+                  they can choose among them, as part of a user
+                  feedback loop strategy that combines automatic with
+                  manual matching methods. 
+		\item Manages the mapping decisions made by the users,
+                  by keeping track of them.
+	\end{itemize}
+        \item Implementation
+	\begin{itemize}
+        \item Uses JavaFX.
+       \item Integrates with AgreementMaker, therefore can be used in
+         conjunction with other visualization methods.
+       \end{itemize}
 \end{enumerate}
 
-Additionally, nice interface of JavaFX also provides good user experience. However, there still remains much potential of improvement. 
+Clearly, there are several directions for future work. The first one
+is that we would like to extend the comparison of matching algorithms
+to more than two at a time. Figure~\ref{fig:updated_structure} shows our preliminary design to
+compare more than two algorithms. Each node in the structure is a
+pie chart that can be traversed recursively. The center pie chart
+represent the current class and the outer pie charts are the matching
+results of different matching algorithms. We connect the center and
+outer charts with a line: the longer the line, the smaller the matching confidence value. 
+
+\begin{figure*}[!ht]
+	\centering
+	\includegraphics[width=4.5in]{pics/structure.png}
+	\caption{Comparison of several matching algorithms.}
+	\label{fig:updated_structure}
+\end{figure*}
+
+It may be the case that no single visualization strategy works
+separately, especially for very large ontologies. AgreementMaker already provides several different
+strategies~\cite{cruz-icde-demo,vldb2009demo}. Experiments would be needed to determine the usability and
+effectiveness of
+the different strategies when used separately or in coordination with
+one another.
+
+
+

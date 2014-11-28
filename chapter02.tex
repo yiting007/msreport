@@ -3,21 +3,37 @@
 % !TEX spellcheck = en-US
 %%=========================================
 \chapter{Related Work}
-Although little, there has already been some work on ontology matching visualization \cite{falconer2007cognitive}. Each of them has advantages of presenting information, also some unsatisfying features. In the following part we will introduce and analyze each method briefly.
+There has been little work on ontology matching visualization and especially on ontology matching visualization for large ontologies as is apparent from a recent survey~\cite{surveyLambrix}. This survey also does not report on an analysis of the available visualization tools from a user effectiveness viewpoint. Therefore, there is the urgent need to develop truly scalable ontology matching visualization approaches and to evaluate their usability. In what follows we list briefly the most relevant visualization methods we have uncovered in the past few months.
 
 %%=========================================
-\section{Cluster representation} % (fold)
+\section{Cluster Visualization} % (fold)
 \label{sub:cluster_representation}
-    The cluster representation \cite{Lanzenberger06alviz-} does a good job in showing both detailed and general information of matching results. Users can select the level they want to cluster for the results. However, this method is severely constrained by its computation complexity, which is $O(n^3)$ where $n$ is the size of the ontology. Furthermore, it can only be applied in one algorithm, when multiple algorithms are used, colors indicating the matching confidence might be confusing.
+    The cluster representation \cite{Lanzenberger06alviz-} shows both detailed and general information of matching results and provides in addition a JTree visualization. Users can select the level at which they want to cluster the results. For the visualization of each ontology this approach uses a spring-embedded graph drawing algorithm. As the authors point out, this method is severely constrained by its computation complexity, which is $O(n^3)$ where $n$ is the size of the ontology. Other drawbacks of the approach are that only the results of a single matching algorithm can be visualized. %The mappings between classes are not directly visualized, because of the lack of visual connections between the classes that are mapped.  
+Nodes of each ontology are color coded so as to show whether they have been mapped and the level of similarity found with classes of the other ontology. 
 
+Another graph drawing representation that was developed for the AgreementMakerLight system~\cite{faria2013agreementmakerlight}, which extends AgreementMaker to very large ontologies, provides a single visualization that also uses a spring-embedded technique where both ontologies and the mappings between classes are displayed. However, it displays only a few mappings at a time~\cite{PesquitaVisualization2014}. This technique does not allow to compare the results of more than one matching algorithm at once.
 %%=========================================
-\section{Treemap view} % (fold)
+\section{Treemap and Pie Chart Visualizations} % (fold)
 \label{sub:treemap_view}
-    Treemap view \cite{falconer2007cognitive} of ontology matching does well in showing much information in a certain area. Besides that, detailed matching information is provided in another small window. However, when ontology tends to be large, the lower the level, the smaller the area, and the information can not be conveyed clearly. In the contrast, upper level ontology usually have smaller number than their children, but they take more area, which does not reasonably deals with the problem.
+The {\sc Prompt+CogZ} tool supports multiple visualizations, including one based on TreeMaps and another one that displays pie charts~\cite{Falconer07}. This tool is designed to provide an overview of the ontologies and potential mappings. TreeMaps have the advantage that they can be used to visualize large amounts of data, but fit in a small area. Forcefully, details cannot be provided for large ontologies. Some details are provided by a pie chart view with information for each branch of the ontology, such as the number of candidate mappings, mapped classes, and classes that are not mapped. %Detailed matching information is provided in another small window. However, when the ontology tends to be large, the lower the level, the smaller the area, and the information cannot be conveyed clearly. In contrast, upper level ontology usually have smaller number than their children, but they take more area, which does not reasonably deals with the problem. 
+We note, however, that for the display of candidate mappings, the tool falls back on a JTree-like visualization, which uses a fish-eye view lens to allow for the display of larger ontologies. Clearly this is overall an advanced visualization tool. However, it does not seem to be able to show concurrent displays of more than one matching algorithm at a time.  Together with our approach, this is the only other tool that supports pie charts with the different that our pie charts drive the navigation across all levels of the ontologies, while their navigation appears instead to be driven by the TreeMap visualization.
 %%=========================================
-\section{Matrix representation} % (fold)
+\section{Matrix Visualization} % (fold)
 \label{sub:matrix_representation}
-    This matrix representation \cite{cruz2012interactive} surpasses the aforementioned two methods because it makes full use of space and color information, showing as the following figure. The color indicating each matching confidence actually works as the third dimension without adding more space. Problem occurs when the size of the similarity matrix grows with ontology size. Also, because of the sparsity of the similarity matrix, showing them all is actually a waste of space. 
+A matrix visualization where the classes of both ontologies are placed along the X and Y axes provides a more comprehensive view of the matching process as compared with the aforementioned methods because it allows for the whole mapping space to be visualized with equal detail. We know of two such visualizations: the one provided by iMerge~\cite{iMerge} and the one provided by AgreementMaker~\cite{cruz-icde-demo}. Both systems support multiple visualizations, including a traditional JTree-like visualization for each ontology with connections between the two ontologies showing the mappings. 
+Like the systems already mentioned, these two systems do not scale to very large ontologies, a problem that could be remedied because of the usual sparsity of similarity matrices. AgreementMaker has the distinct capability of allowing for the comparison of different matching algorithms side by side and simultaneous navigation across the various similarity matrices. The color intensity supported by AgreementMaker, which depicts the matching confidence for each mapping, adds an extra dimension to the visualization without adding extra space. 
+
+Figure~\ref{fig:vapanel} shows the visual interface for matrix visualization of AgreementMaker, which is called {\it Visual Analytics Panel\/} because it is used to support the visual analytics process. The top toolbar controls the matching process. Colored squares represent mappings that are correct (green), missed (red), or falsely positive (blue). The intensity of the colors represents the similarity value in the range [0,1]. The overall panel highlights a vector of points for the same mapping (the signature vector). The two leftmost plots represent the similarity matrices for two of the algorithms. The third plot represents the weighted combination of all the algorithms. The rightmost plot represents the disagreement matrix among the algorithms in shades of grey~\cite{cruz-icde-demo}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=4.5in]{pics/vap-mixed.png}
+	\caption{The visual analytics panel of AgreementMaker ~\cite{cruz-icde-demo}.}.
+	\label{fig:vapanel}
+\end{figure}
+	
+
+%Problem occurs when the size of the similarity matrix grows with ontology size. Also, because of the sparsity of the similarity matrix, showing them all is actually a waste of space. 
 %%=========================================
 
 

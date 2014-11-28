@@ -3,28 +3,37 @@
 % !TEX spellcheck = en-US
 %%=========================================
 \chapter{Introduction}
-An ontology typically provides a vocabulary describing a domain of interest and a specification of the meaning of terms in that vocabulary. More corporations have started using ontology for storing their knowledge. However, more than one ontology can be used for the same knowledge. To address this issue, one has to either devise a mechanism to merge the ontology automatically or, let human to do the matching manually. That is what we called ontology matching, and it is the process of finding the relationship between concepts/properties between different ontology. In this project we focus on the concept matching.
+An ontology provides a vocabulary describing a domain of interest and a specification of the meaning of terms in that vocabulary. An increasing number of organizations are using ontologies to %model and 
+organize their knowledge. However, different ontologies exist for the same knowledge domain. To address this issue, {\it ontology matching\/} is needed, which is the process of finding the relationships, called {\it mappings\/} between classes or properties of two different ontologies, the {\it source\/} and the {\it target\/} ontologies~\cite{euzenat2007book}. In this project, we focus on class matching. Ontology matching can be performed automatically, manually, or semi-automatically using a  combination of both strategies. 
 
-    Different techniques have been examined in concept matching. For example the string/language based algorithm, the structural based algorithm, the combination strategies and filtering techniques. In this project we will not focusing on any particular matching algorithm, but focusing on visualizing the ontology matching process and the methods to involve human in the matching process to help get a better mapping.
-
-    We decompose this project into two parts: visualization and visual analytics. To some point, good visualization can be regarded as a prerequisite of effective analytics. Some previous work has been done on the visualization part, but most of the two parts are challenging and remain undeveloped, which makes this project interesting.
+A variety of algorithms have been developed for class matching. For example algorithms based on the similarity of the strings in the class labels or those based on the structure of the ontologies. Advanced ontology matching systems, such as AgreementMaker, use combinations of a large variety of algorithms~\cite{vldb2009demo,OM-technical}. In this project, we will not be focusing on any particular matching algorithm, but rather on visualizing the results of the ontology matching process so as to enable the involvement of humans in the matching process with the objective of obtaining better results. The quality of a matching algorithm or of a combination of matching algorithms is measured in terms of precision, recall, and F-measure, by comparing the obtained mappings with the mappings that belong to the {\it gold standard\/} or {\it reference alignment}. The OAEI (Ontology Alignment Evaluation Initiative)~\footnote{http://oaei.ontologymatching.org/} competition is instrumental for the research community by providing several ontology matching tracks and making some of the reference alignments available.
 
 %%=========================================
-\section{Visualization} % (fold)
-\label{sub:visualization}
-    Visual representation of large scaled data helps people understand and analyze information or process. Here it is very necessary to point out that this project is doing ontology matching visualization, instead of pure ontology visualization. There has been much work done on visualizing ontology structures, while visualizing ontology matching results are barely found. This might be due to the complex relationship between source and target ontology structures. Moreover, another focus is that the visualization is applied to large ontology, which has little work been done so far. Simply showing a list or a tree structure of ontology does little help when the size of the ontology tend to be very large, due to the limitation of memory spaces. To better compare and analyze the matching results, a better representation of data is required.
-% subsection visualization (end)
+\section{User Feedback Loop for Ontology Maching}	% (fold)
+\label{sub:ufl}
+
+%The combination of automatic and manual 
+Semi-automatic ontology matching has recently gained considerable attention. In those approaches, those mappings that are believed to be incorrect are presented to users for validation~\cite{cruz-icde-demo,userfeedbackISWC2009}. The workflow consists of a loop where the outcome of the validation step is fed back into the ontology matching process. Visual analytics can help users in validating the mappings~\cite{cruz-icde-demo}.
+   
+%%=========================================
 
 %%=========================================
 \section{Visual Analytics} % (fold)
 \label{sub:analytics}
-    Visual Analytics is the science of analytical reasoning supported by interactive visual interfaces \cite{bertini2010investigating}. It is a new interdisciplinary domain that integrates several domains like: interactive visualization, statistics and data mining, human factors, to focus on analytical reasoning facilitated by interactive visual interfaces. Visual Analytics often involves the similarity matrices. A similarity matrix is built for each pair of concepts, using the Linear Weighted Combination (LWC) matcher, which processes the weight average for the different similarity results \cite{Cruz:2009:AEM:1687553.1687598}. Assume that the source and target ontology have size $M$ and $N$, then the similarity matrix is of size $M \times N$. When $M$ and $N$ are large, the matrix becomes more complicated. Additionally, it would be much more challenging if multiple matching algorithms are involved in the analytics.
+Visual Analytics is the science of analytical reasoning supported by interactive visual interfaces. According to Bertini and Lalanne, it is a new interdisciplinary domain that integrates several domains like: interactive visualization, statistics and data mining, human factors, to focus on analytical reasoning facilitated by interactive visual interfaces~\cite{Bertini2010}. In the realm of ontology matching, a previous visual analytics approach involves the visualization of similarity matrices produced by the different matching algorithms~\cite{cruz-icde-demo}. A similarity matrix contains the results of matching two ontologies. %If the source and target ontology have size respectively $m$ and $n$, then the similarity matrix is of size $m \times n$. When $m$ and $n$ are large, the matrices would become very large and hence their visualization poses challenges. 
+To provide the users with complete information on the matching process, the results of multiple matching algorithms should be part of the visual analytics process~\cite{cruz-icde-demo}. 
+
+%We decompose this project into two parts: visualization and visual analytics. To some point, good visualization can be regarded as a prerequisite of effective analytics. Some previous work has been done on the visualization part, but most of the two parts are challenging and remain undeveloped, which makes this project interesting.
 
 %%=========================================
-\section{User Feedback Loop}	% (fold)
-\label{sub:ufl}
-   This project involves the issue of user intervention instead of only focusing on matching algorithms to compute candidate mappings. Ontology is represented by language and languages are known to be ambiguous. Compared to machines, human can better match those concepts by using detailed knowledge about the world.
+\section{Visualization} % (fold)
+\label{sub:visualization}
+The focus of our project is on the interactive visualization for ontology matching. The visual representation of large-scale data helps people understand and analyze information. % %Ontologies have been visualized using a variety of graph visualization methods. 
+Our focus is on ontology matching visualization, instead of simple ontology visualization. While there has been much work done on visualizing ontology structures, while approaches for visualizing ontology matching results are rare. This might be due to the complex relationship between source and target ontology structures. This problem becomes further complicated when matching large ontologies.  %another focus is that the visualization is applied to large ontology, which has little work been done so far. 
+The display of an ontology as a tree structure using for example the JTree class can be very helpful for small and medium size ontologies, but is not helpful for large ontologies because of the amount of scrolling needed to locate the different mappings. Therefore to better compare and analyze the matching results, a better visual representation of data is required.
+% subsection visualization (end)
 
-   This project aims at improving the matching results instead of improving the matching algorithms. 
-%%=========================================
+
+
+
 
